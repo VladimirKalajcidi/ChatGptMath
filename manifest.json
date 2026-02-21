@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGptMath",
+  "version": "0.1.0",
+  "description": "Chat in a sidebar with LaTeX rendering.",
+  "permissions": ["storage", "activeTab", "sidePanel"],
+  "host_permissions": ["https://api.openai.com/*"],
+  "action": {
+    "default_title": "ChatGptMath"
+  },
+  "background": {
+    "service_worker": "background/service_worker.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel/sidepanel.html"
+  },
+  "options_page": "options/options.html",
+  "commands": {
+    "toggle-sidebar": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+M",
+        "mac": "Command+Shift+M"
+      },
+      "description": "Toggle ChatGptMath sidebar"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self';"
+  }
+}

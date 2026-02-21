@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChatGptMath</title>
+    <link rel="stylesheet" href="../vendor/katex/katex.min.css" />
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div class="brand">ChatGptMath</div>
+        <div class="header-actions">
+          <button id="new-chat" class="btn ghost">New Chat</button>
+          <button id="clear-chat" class="btn ghost">Clear</button>
+          <button id="open-settings" class="btn ghost">Settings</button>
+        </div>
+      </header>
+
+      <div id="banner" class="banner hidden"></div>
+
+      <main id="chat" class="chat"></main>
+
+      <footer class="composer">
+        <textarea id="composer-input" rows="2" placeholder="Ask anything... (Shift+Enter for newline)"></textarea>
+        <div class="composer-actions">
+          <button id="stop-stream" class="btn ghost hidden">Stop</button>
+          <button id="send" class="btn primary">Send</button>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../vendor/marked/marked.umd.js"></script>
+    <script src="../vendor/katex/katex.min.js"></script>
+    <script src="../vendor/katex/auto-render.min.js"></script>
+    <script src="sidepanel.js" type="module"></script>
+  </body>
+</html>

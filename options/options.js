@@ -5,6 +5,8 @@ const modelSelect = document.getElementById("model");
 const temperatureInput = document.getElementById("temperature");
 const temperatureValue = document.getElementById("temperature-value");
 const systemPromptInput = document.getElementById("system-prompt");
+const tikzRendererUrlInput = document.getElementById("tikz-renderer-url");
+const tikzRendererTokenInput = document.getElementById("tikz-renderer-token");
 const statusEl = document.getElementById("status");
 const form = document.getElementById("settings-form");
 
@@ -17,6 +19,8 @@ async function init() {
   temperatureInput.value = settings.temperature ?? 0.2;
   temperatureValue.textContent = String(settings.temperature ?? 0.2);
   systemPromptInput.value = settings.systemPrompt || "";
+  tikzRendererUrlInput.value = settings.tikzRendererUrl || "";
+  tikzRendererTokenInput.value = settings.tikzRendererToken || "";
 }
 
 temperatureInput.addEventListener("input", () => {
@@ -29,7 +33,9 @@ form.addEventListener("submit", async (event) => {
     apiKey: apiKeyInput.value.trim(),
     model: modelSelect.value,
     temperature: Number(temperatureInput.value),
-    systemPrompt: systemPromptInput.value
+    systemPrompt: systemPromptInput.value,
+    tikzRendererUrl: tikzRendererUrlInput.value.trim(),
+    tikzRendererToken: tikzRendererTokenInput.value.trim()
   };
   await saveSettings(settings);
   statusEl.textContent = "Saved.";

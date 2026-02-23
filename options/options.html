@@ -41,6 +41,16 @@
           <textarea id="system-prompt" rows="4" placeholder="You are a helpful math assistant..."></textarea>
         </label>
 
+        <label>
+          TikZ Renderer URL (optional)
+          <input id="tikz-renderer-url" type="url" placeholder="https://your-renderer.example.com/render" autocomplete="off" />
+        </label>
+
+        <label>
+          TikZ Renderer Token (optional)
+          <input id="tikz-renderer-token" type="password" placeholder="Bearer token for renderer API" autocomplete="off" />
+        </label>
+
         <button type="submit">Save</button>
         <p id="status" class="status"></p>
       </form>

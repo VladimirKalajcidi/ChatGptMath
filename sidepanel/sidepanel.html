@@ -12,7 +12,14 @@
       <header class="header">
         <div class="brand">ChatGptMath</div>
         <div class="header-actions">
-          <button id="new-chat" class="btn ghost">New Chat</button>
+          <button id="new-chat" class="btn ghost" type="button" aria-label="New chat">
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" class="ui-icon">
+                <path d="M10 4.5v11M4.5 10h11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.9"/>
+              </svg>
+            </span>
+            <span>New Chat</span>
+          </button>
           <button id="clear-chat" class="btn ghost">Clear</button>
           <button id="open-settings" class="btn ghost">Settings</button>
         </div>
@@ -23,10 +30,32 @@
       <main id="chat" class="chat"></main>
 
       <footer class="composer">
-        <textarea id="composer-input" rows="2" placeholder="Ask anything... (Shift+Enter for newline)"></textarea>
+        <input
+          id="file-input"
+          type="file"
+          accept="image/*,image/heic,image/heif,image/heic-sequence,image/heif-sequence,.png,.jpg,.jpeg,.gif,.bmp,.webp,.svg,.heic,.heif,.avif,.pdf,.txt,.csv,.tsv,.md,.markdown,.rtf,.json,.jsonl,.xml,.yaml,.yml,.ini,.toml,.log,.sql,.html,.htm,.css,.js,.jsx,.ts,.tsx,.py,.java,.c,.cpp,.h,.hpp,.cs,.go,.rs,.php,.rb,.swift,.kt,.kts,.sh,.bash,.zsh,.ps1,.bat,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.odt,.ods,.odp,.zip,.rar,.7z,.tar,.gz"
+          multiple
+          class="hidden"
+        />
+        <div id="attachment-preview-list" class="attachment-preview-list hidden"></div>
+        <textarea id="composer-input" rows="1" placeholder="Ask anything... (Shift+Enter for newline)"></textarea>
         <div class="composer-actions">
-          <button id="stop-stream" class="btn ghost hidden">Stop</button>
-          <button id="send" class="btn primary">Send</button>
+          <div class="composer-left-actions">
+            <button id="add-file" class="btn ghost" type="button" aria-label="Add file">
+              <span class="btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" class="ui-icon">
+                  <path d="M6.1 10.2l4.8-4.8a3 3 0 114.2 4.2l-5.8 5.8a4.1 4.1 0 11-5.8-5.8l6-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/>
+                </svg>
+              </span>
+              <span>Add file</span>
+            </button>
+            <button id="stop-stream" class="btn ghost hidden" type="button">Stop</button>
+          </div>
+          <button id="send" class="btn primary send-btn" type="button" aria-label="Send">
+            <svg class="send-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 5l0 13M6.5 10.5L12 5l5.5 5.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/>
+            </svg>
+          </button>
         </div>
       </footer>
     </div>
@@ -34,6 +63,7 @@
     <script src="../vendor/marked/marked.umd.js"></script>
     <script src="../vendor/katex/katex.min.js"></script>
     <script src="../vendor/katex/auto-render.min.js"></script>
+    <script src="../vendor/pdfjs/pdf.min.js"></script>
     <script src="sidepanel.js" type="module"></script>
   </body>
 </html>

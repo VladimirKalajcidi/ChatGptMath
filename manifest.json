@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "Chat in a sidebar with LaTeX rendering.",
   "permissions": ["storage", "activeTab", "sidePanel"],
-  "host_permissions": ["https://api.openai.com/*"],
+  "host_permissions": ["https://api.openai.com/*", "https://*/*", "http://*/*"],
   "action": {
     "default_title": "ChatGptMath"
   },

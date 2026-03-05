@@ -1,4 +1,5 @@
 const SIDE_PANEL_PATH = "sidepanel/sidepanel.html";
+const WELCOME_PAGE_URL = "https://vladimirkalajcidi.github.io/metadata-viewer-welcome_page/chatgptmath.html";
 
 function hasSidePanel() {
   return typeof chrome.sidePanel !== "undefined";
@@ -27,9 +28,15 @@ async function openSidePanel(tabId) {
   });
 }
 
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener((details) => {
   if (hasSidePanel()) {
     chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true }).catch(() => {});
+  }
+
+  if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
+    chrome.tabs.create({
+      url: WELCOME_PAGE_URL
+    });
   }
 });
 

@@ -1,5 +1,5 @@
 const SIDE_PANEL_PATH = "sidepanel/sidepanel.html";
-const WELCOME_PAGE_URL = "https://vladimirkalajcidi.github.io/metadata-viewer-welcome_page/chatgptmath.html";
+const WELCOME_PAGE_URL = "https://vladimirkalajcidi.github.io/chatgptmath-welcome_page/";
 
 function hasSidePanel() {
   return typeof chrome.sidePanel !== "undefined";

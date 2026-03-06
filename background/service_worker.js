@@ -1,4 +1,5 @@
 const SIDE_PANEL_PATH = "sidepanel/sidepanel.html";
+const WELCOME_PAGE_URL = "https://vladimirkalajcidi.github.io/chatgptmath-welcome_page/";
 
 function hasSidePanel() {
   return typeof chrome.sidePanel !== "undefined";
@@ -34,7 +35,7 @@ chrome.runtime.onInstalled.addListener((details) => {
 
   if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
     chrome.tabs.create({
-      url: chrome.runtime.getURL("welcome/index.html")
+      url: WELCOME_PAGE_URL
     });
   }
 });
